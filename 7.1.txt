@@ -1,0 +1,29 @@
+----- Find max number from array of data bytes -----
+
+DATA SEGMENT
+A db 45h,92h,0F2h,68h,81h,55h,12h,24h,0C4h,0C9h
+MAX dw 0015h
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+MOV AX,DATA
+MOV DS,AX
+MOV SI,0000h
+MOV CX,09h
+MOV AL,[SI]
+
+BACK:
+INC SI
+CMP AL,[SI]
+JNC skip
+MOV AL,[SI]
+skip:
+LOOP BACK
+
+MOV MAX,AX
+INT 3h
+
+CODE ENDS
+END START

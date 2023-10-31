@@ -1,0 +1,25 @@
+----- Copy block of data from source memory location to destination memory location -----
+
+DATA SEGMENTS
+A1 dw 1530h
+A2 dw 1540h
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+START:
+MOV AX,DATA
+MOV DS,AX
+
+MOV SI, [A1]
+MOV DI, [A2]
+MOV CX,000Ah
+
+MACK: MOV AL,[SI]
+MOV [DI],AL
+INC SI
+INC DI
+LOOP BACK 
+
+CODE ENDS
+END START

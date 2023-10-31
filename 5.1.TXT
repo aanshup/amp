@@ -1,0 +1,27 @@
+----- Add two 16-bit Numbers -----
+
+DATA SEGMENT 
+n1 dw 8532h
+n2 dw 98A5h
+result dw ?
+resm dw ?
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA 
+
+START:
+MOV AX,DATA
+MOV DS,AX
+MOV AX,n1
+MOV BX,n2
+ADD AX,BX
+MOV result,AX
+MOV AX,0000h
+ADC AX,0000h
+
+MOV resm,AX
+INT 3h
+
+CODE ENDS
+END START

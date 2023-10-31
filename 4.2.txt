@@ -1,0 +1,8 @@
+----- Copy 16 bit data to register BX -----
+
+hello: DB "Hello World!"
+start:
+MOV BX, 0xF4B6
+MOV CL, BH 
+MOV CH, BL 
+int 0x10

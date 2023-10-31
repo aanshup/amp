@@ -1,0 +1,23 @@
+----- direct addressing mode -----
+
+hello: DB "Hello World!"
+
+start: MOV AX, 0x2000
+MOV DS,AX
+MOV SI, 0x1840
+MOV AH, 0xF4
+MOV byte DS[SI], AH
+int 0x10
+
+
+
+----- indirect addressing mode -----
+
+hello: DB "Hello World!"
+
+start: MOV AX, 0x2000
+MOV DS,AX
+MOV SI, 0x1840
+MOV AH, 0x4F
+MOV byte DS[0x1840], AH
+int 0x10

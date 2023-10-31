@@ -1,0 +1,10 @@
+----- stor AX register data at location 24598h -----
+
+hello: DB "Hello World!"
+
+start: MOV AX, 0x2400
+MOV DS,AX
+MOV AX, 0x4832
+MOV word DS[0x0598], AX
+MOV DX, word [0x0598]
+int 0x10
